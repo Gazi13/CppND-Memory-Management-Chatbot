@@ -49,7 +49,7 @@ ChatBot::~ChatBot()
 ChatBot::ChatBot(const ChatBot& chatBot){
 
     // Do we need this check CHECK_HERE
-    if (this->_image != nullptr) {
+    if (this->_image != nullptr  && this->_image != NULL) {
         delete this->_image; 
     }
 
@@ -72,7 +72,7 @@ ChatBot& ChatBot::operator=(const ChatBot& chatBot) {
     }
 
     // Delete any owned data so there are no memory leaks
-    if (this->_image != nullptr) {
+    if (this->_image != nullptr  && this->_image != NULL ) {
         delete this->_image; 
     }
 
@@ -89,11 +89,6 @@ ChatBot& ChatBot::operator=(const ChatBot& chatBot) {
 
 // Move constructor
 ChatBot::ChatBot(ChatBot&& chatBot){
-
-    // Do we need this check CHECK_HERE
-    if (this->_image != nullptr) {
-        delete this->_image; 
-    }
 
     // copy
     this->_image = chatBot._image;
@@ -121,7 +116,7 @@ ChatBot& ChatBot::operator=(ChatBot&& chatBot) {
     }
 
     // Delete any owned data so there are no memory leaks
-    if (this->_image != nullptr) {
+    if (this->_image != nullptr  && this->_image != NULL) {
         delete this->_image; 
     }
 
