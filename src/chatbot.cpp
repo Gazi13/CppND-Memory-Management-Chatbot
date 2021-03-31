@@ -45,6 +45,103 @@ ChatBot::~ChatBot()
 //// STUDENT CODE
 ////
 
+// Copy constructor
+ChatBot::ChatBot(const ChatBot& chatBot){
+
+    // Do we need this check CHECK_HERE
+    if (this->_image != nullptr) {
+        delete this->_image; 
+    }
+
+    this->_image = chatBot._image;
+    this->_chatLogic = chatBot._chatLogic;
+    this->_rootNode = chatBot._rootNode;
+    this->_currentNode = chatBot._currentNode;
+
+    std::cout << "ChatBot Copy Constructor" << std::endl;
+    
+}
+
+
+// Overloaded assignment operator
+ChatBot& ChatBot::operator=(const ChatBot& chatBot) {
+    
+    // Check is this the same object or not
+    if (this == &chatBot) {
+        return *this;
+    }
+
+    // Delete any owned data so there are no memory leaks
+    if (this->_image != nullptr) {
+        delete this->_image; 
+    }
+
+    this->_image = chatBot._image;
+    this->_chatLogic = chatBot._chatLogic;
+    this->_rootNode = chatBot._rootNode;
+    this->_currentNode = chatBot._currentNode;
+
+    std::cout << "ChatBot Copy Assignment Operator" << std::endl;
+
+    return *this;
+
+}
+
+// Move constructor
+ChatBot::ChatBot(ChatBot&& chatBot){
+
+    // Do we need this check CHECK_HERE
+    if (this->_image != nullptr) {
+        delete this->_image; 
+    }
+
+    // copy
+    this->_image = chatBot._image;
+    this->_chatLogic = chatBot._chatLogic;
+    this->_rootNode = chatBot._rootNode;
+    this->_currentNode = chatBot._currentNode;
+
+    // delete
+    chatBot._image = nullptr;
+    chatBot._chatLogic = nullptr;
+    chatBot._rootNode = nullptr;
+    chatBot._currentNode = nullptr;
+    
+    std::cout << "ChatBot Move Constructor" << std::endl;
+
+
+}
+
+// Move assingment operator
+ChatBot& ChatBot::operator=(ChatBot&& chatBot) {
+    
+    // Check is this the same object or not
+    if (this == &chatBot) {
+        return *this;
+    }
+
+    // Delete any owned data so there are no memory leaks
+    if (this->_image != nullptr) {
+        delete this->_image; 
+    }
+
+    // copy
+    this->_image = chatBot._image;
+    this->_chatLogic = chatBot._chatLogic;
+    this->_rootNode = chatBot._rootNode;
+    this->_currentNode = chatBot._currentNode;
+
+    // delete
+    chatBot._image = nullptr;
+    chatBot._chatLogic = nullptr;
+    chatBot._rootNode = nullptr;
+    chatBot._currentNode = nullptr;
+
+    std::cout << "ChatBot Move Assignment Operator" << std::endl;
+
+    return *this;
+}
+
 ////
 //// EOF STUDENT CODE
 
