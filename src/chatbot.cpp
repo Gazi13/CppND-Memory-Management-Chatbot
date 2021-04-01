@@ -96,6 +96,9 @@ ChatBot::ChatBot(ChatBot&& chatBot){
     this->_rootNode = chatBot._rootNode;
     this->_currentNode = chatBot._currentNode;
 
+    // Update the ChatLogics pointer to point to this Chatbot 
+    this->_chatLogic->SetChatbotHandle(this);
+
     // delete
     chatBot._image = nullptr;
     chatBot._chatLogic = nullptr;
@@ -125,6 +128,9 @@ ChatBot& ChatBot::operator=(ChatBot&& chatBot) {
     this->_chatLogic = chatBot._chatLogic;
     this->_rootNode = chatBot._rootNode;
     this->_currentNode = chatBot._currentNode;
+
+    // Update the ChatLogics pointer to point to this Chatbot 
+    this->_chatLogic->SetChatbotHandle(this);
 
     // delete
     chatBot._image = nullptr;
