@@ -1,6 +1,7 @@
 #ifndef CHATBOT_H_
 #define CHATBOT_H_
 
+#include <memory>
 #include <wx/bitmap.h>
 #include <string>
 
